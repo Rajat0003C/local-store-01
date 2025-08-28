@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 2000px; /* just for scrolling demo */
+    }
+
+    /* Floating Help Desk Button */
+    .help-desk {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white; /* White background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5); /* Black shadow */
+      transition: transform 0.2s, box-shadow 0.3s;
+      z-index: 1000;
+    }
+
+    .help-desk:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.7); /* darker shadow on hover */
+    }
+
+    .help-desk img {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Help Desk Button -->
+  <div class="help-desk" onclick="openHelp()">
+    <img src="data:image/png;base64,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" alt="Help" >
+  </div>
+
+  <script>
+    function openHelp() {
+      alert("Welcome to Help Desk! How can we assist you?");
+      // Or redirect to help page: window.location.href = "help.html";
+      window.location.href = "helpdesk.html";
+    }
+  </script>
+
+</body>
+</html>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #309a18, #326430);
+    }
+
+    
+    .container {
+      width: 350px;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .input-box {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #33b412;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #5563c1;
+    }
+    .switch {
+      margin-top: 15px;
+      color: #666;
+      font-size: 14px;
+    }
+    .switch span {
+      color: #667eea;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Login Form -->
+  
+     <Strong style="color:#040052">Congratulations💐</Strong>
+     <p>Your order is Confirmed</p>
+    
+      <button class="btn" onclick="window.location.href='home.html'">Keep Shopping</button>
+<h6 style="color:#a32626">We will be at your door step in just few minutes</h7>
+
+
+
+
+
+
+  </div>
+
+
+</body>
+</html>
+
+
+
+
+

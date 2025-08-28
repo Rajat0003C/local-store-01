@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOCAL STORE</title>
+  <style>
+
+    
+    body { margin: 0; font-family: Arial, sans-serif; }
+
+    header {
+      background: linear-gradient(135deg, #309a18, #158d11);
+      color: rgb(255, 255, 255);
+      padding: 0.4px;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: rgb(200, 233, 169) underline ;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+ <div style="display: flex; justify-content: space-between; align-items: start; padding: 15px; color: rgb(144, 187, 123);">
+     <!-- Right: Owner Name -->
+  <div style="font-style: italic;">
+   <b>@Owner</b>
+   Prof. Swapan Chakraborty
+  </div>
+  </div>
+  <h1>LOCAL STORE'S HOME DELHIVERY</h1>
+   <h3 style= "color:rgb(146, 215, 146)">Radharani Bhandar | Ambassa | Dhalai | Tripura | 799289</h3>
+
+
+
+  
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    /* Hamburger Icon */
+    .menu-icon {
+      cursor: pointer;
+      width: 30px;
+      margin: 20px;
+    }
+    .bar {
+      height: 4px;
+      width: 100%;
+      background-color: rgb(255, 249, 249);
+      margin: 6px 0;
+      border-radius: 5px;
+    }
+
+    /* Hidden menu */
+    .menu {
+      display: none;
+      flex-direction: column;
+      background: linear-gradient(135deg, #309a18, #277823);
+      padding: 10px;
+      width: 150px;
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      box-shadow: 0 2px 8px rgb(0, 0, 0);
+      border-radius: 10px;
+    }
+    .menu a {
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      padding: 8px;
+      margin: 4px 0;
+      background: linear-gradient(135deg, #309a18, #277823);
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .menu a:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hamburger Icon -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div class="menu" id="menu">
+    <a href="catagories.html">Categories</a>
+      <a href="order.html">Orders</a>
+    <a href="about.html">About</a>
+    <a href="location.html">Find my Shop</a>
+    <a href="rateus.html">Rate Us</a>
+  </div>
+  </body>
+</header>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    .search-box {
+      text-align: center;
+      margin: 15px;
+    }
+
+    #searchBar {
+      width: 70%;
+      max-width: 300px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    #searchBtn {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #309a18;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    /* Darken when hovered */
+    #searchBtn:hover {
+      background: #1f5e14;
+    }
+
+    /* Darken when input is focused */
+    #searchBar:focus + #searchBtn {
+      background: #1f5e14;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔍 Search -->
+  <div class="search-box">
+    <input type="text" id="searchBar" placeholder="🔍 Search here...">
+    <button id="searchBtn" onclick="doSearch()">Search</button>
+  </div>
+
+  <p id="result"></p>
+
+  <script>
+    function doSearch() {
+      let query = document.getElementById("searchBar").value;
+      document.getElementById("result").innerText = "You searched for: " + query;
+    }
+
+    // Enter key also triggers search
+    document.getElementById("searchBar").addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        doSearch();
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      
+    }
+
+    /* Floating Help Desk Button */
+    .help-desk {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white; /* White background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5); /* Black shadow */
+      transition: transform 0.2s, box-shadow 0.3s;
+      z-index: 1000;
+    }
+
+    .help-desk:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.7); /* darker shadow on hover */
+    }
+
+    .help-desk img {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Help Desk Button -->
+  <div class="help-desk" onclick="openHelp()">
+    <img src="https://www.pngall.com/wp-content/uploads/11/Helpdesk-PNG-HD-Image.png" alt="Help" >
+  </div>
+
+  <script>
+    function openHelp() {
+      alert("Welcome to Help Desk! How can we assist you?");
+      // Or redirect to help page: window.location.href = "help.html";
+      window.location.href = "helpdesk.html";
+    }
+  </script>
+
+</body>
+</html>
+
+
+</header>
+  <style>
+  
+    .cart-container {
+      width: 80%;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: center;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #667eea;
+      color: white;
+    }
+    img {
+      width: 60px;
+    }
+    .quantity input {
+      width: 50px;
+      text-align: center;
+      padding: 5px;
+    }
+    .btn {
+      padding: 8px 15px;
+      background: #ff4d4d;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #cc0000;
+    }
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .checkout-btn:hover {
+      background: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <div class="cart-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="cartItems">
+       
+      </tbody>
+    </table>
+
+    <p class="total">Grand Total: ₹<span id="grandTotal">900</span></p>
+    <div class="cart-summary">
+       
+        <button class="checkout-btn" id="checkoutBtn" onclick="window.location.href='checkout.html'" >Proceed to Checkout</button>
+    </div>
+</div>
+
+<script>
+function addToCart(price) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(price);   // only price stored
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Item of ₹" + price + " added to cart!");
+}
+</script>
+
+
+<script>
+    document.getElementById("checkoutBtn").addEventListener("click", function() {
+        // Redirect to checkout.html
+        window.location.href = "checkout.html";
+    });
+</script>
+  </div>
+
+  
+
+  <script>
+    function updateTotal() {
+      let rows = document.querySelectorAll("#cartItems tr");
+      let grandTotal = 0;
+
+      rows.forEach(row => {
+        let price = parseInt(row.cells[2].innerText.replace("₹", ""));
+        let qty = parseInt(row.querySelector("input").value);
+        let total = price * qty;
+        row.querySelector(".item-total").innerText = "₹" + total;
+        grandTotal += total;
+      });
+
+      document.getElementById("grandTotal").innerText = grandTotal;
+    }
+
+    // Update total when quantity changes
+    document.querySelectorAll(".quantity input").forEach(input => {
+      input.addEventListener("change", updateTotal);
+    });
+
+    // Remove item
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.closest("tr").remove();
+        updateTotal();
+      });
+    });
+
+    updateTotal(); // initial calculation
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
